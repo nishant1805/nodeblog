@@ -30,6 +30,8 @@ router.post('/add', function(req, res, next){
     var mainImageExit         = req.files.mainimage.extension;
     var mainImageSize         = req.files.mainimage.size;
   }else {
+    //var mainImageName         = req.files.mainimage.name;
+    console.log(req.files.mainimage);
     var mainImageName = 'noimage.png';
   }
 
@@ -42,7 +44,7 @@ router.post('/add', function(req, res, next){
 
   if(error){
     res.render('addpost',{
-      "errors": errors,
+      "error": error,
       "title": title,
       "body": body
     });
@@ -68,7 +70,5 @@ router.post('/add', function(req, res, next){
     });
   }
 });
-
-
 
 module.exports = router
